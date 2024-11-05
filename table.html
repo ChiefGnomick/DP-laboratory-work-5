@@ -54,6 +54,44 @@
             </tr>
         </table>
     </div>
+    <h2>Добавить новую строку</h2>
+    <form id="addRowForm">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" required><br>
+
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br>
+
+        <label for="username">UserName:</label>
+        <input type="text" id="username" name="username" required><br>
+    </form>
+    <button type="button" onclick="addRow()">Ввести</button>
+
+    <script>
+        function addRow() {
+            const id = document.getElementById("id").value;
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const username = document.getElementById("username").value;
+
+            console.log("ID:", id);
+            console.log("First Name:", firstName);
+            console.log("Last Name:", lastName);
+            console.log("UserName:", username);
+
+            const table = document.getElementById("dataTable");
+            const newRow = table.insertRow();
+
+            newRow.insertCell(0).innerText = id;
+            newRow.insertCell(1).innerText = firstName;
+            newRow.insertCell(2).innerText = lastName;
+            newRow.insertCell(3).innerText = username;
+            document.getElementById("addRowForm").reset();
+        }
+    </script>
 </body>
 
 </html>
